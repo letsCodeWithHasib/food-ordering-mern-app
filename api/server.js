@@ -13,7 +13,9 @@ app.use(cors());
 import connectDB from "./config/db.js";
 connectDB();
 
+//api endpoints
 app.use("/api/v1/food", foodRoute);
+app.use("/images", express.static("uploads"));
 
 app.get("/", (req, res) => {
   res.send("Sab thik hai");
