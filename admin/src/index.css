@@ -17,6 +17,17 @@ hr {
   background-color: #a9a9a9;
 }
 
+.active {
+  background-color: #fff0ed !important;
+  border-color: tomato !important;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
