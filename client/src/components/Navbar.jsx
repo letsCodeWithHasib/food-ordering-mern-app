@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { assets } from "../assets/frontend_assets/assets";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
@@ -43,7 +44,9 @@ const Navbar = ({ setShowLogin }) => {
       <div className="flex gap-10 items-center">
         <img src={assets.search_icon} alt="Loading..." />
         <div className="relative">
-          <img src={assets.basket_icon} alt="Loading..." />
+          <Link to="/cart">
+            <img src={assets.basket_icon} alt="Loading..." />
+          </Link>
           <div className="bg-tomato min-h-3 min-w-3 rounded-full absolute -top-2 -right-3 z-10"></div>
         </div>
         <button
