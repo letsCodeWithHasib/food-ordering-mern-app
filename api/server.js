@@ -5,6 +5,7 @@ const app = express();
 
 import cors from "cors";
 import foodRoute from "./routes/food.route.js";
+import authRoute from "./routes/auth.route.js";
 
 //middlewares
 app.use(express.json());
@@ -15,6 +16,7 @@ connectDB();
 
 //api endpoints
 app.use("/api/v1/food", foodRoute);
+app.use("/api/auth", authRoute);
 app.use("/images", express.static("uploads"));
 
 app.get("/", (req, res) => {
