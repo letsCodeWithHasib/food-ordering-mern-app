@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { assets } from "../assets/frontend_assets/assets";
 import { Link } from "react-router-dom";
+import { StoreContext } from "../context/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
+  const { token, setToken } = useContext(StoreContext);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  };
+  console.log(token);
   return (
     <nav className="flex justify-between items-center py-5">
       <img className="w-40" src={assets.logo} alt="Loading..." />
@@ -49,12 +60,29 @@ const Navbar = ({ setShowLogin }) => {
           </Link>
           <div className="bg-tomato min-h-3 min-w-3 rounded-full absolute -top-2 -right-3 z-10"></div>
         </div>
-        <button
-          onClick={() => setShowLogin(true)}
-          className="bg-transparent rounded-full border border-secondary px-5 py-2"
-        >
-          Sign in
-        </button>
+        {!token ? (
+          <button
+            onClick={() => setShowLogin(true)}
+            className="bg-transparent rounded-full border border-secondary px-5 py-2"
+          >
+            Sign in
+          </button>
+        ) : (
+          <div className="nav-profile relative">
+            <img src={assets.profile_icon} alt="" />
+            <ul className="nav-profile-dropdown">
+              <li>
+                <img src={assets.bag_icon} alt="" />
+                <p>Orders</p>
+              </li>
+              <hr />
+              <li>
+                <img onClick={logout} src={assets.logout_icon} alt="" />
+                <p>Logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );

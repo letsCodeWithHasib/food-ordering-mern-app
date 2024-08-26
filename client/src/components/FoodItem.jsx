@@ -4,7 +4,6 @@ import { assets } from "../assets/frontend_assets/assets";
 
 const FoodItem = ({ id, name, description, price, image }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
-  console.log(cartItems);
   return (
     <div className="cursor-pointer transition duration-custom ease-in-out  mt-8 shadwo-[#00000015] w-[100%] m-auto rounded-2xl shadow-lg animate-fadeIn">
       <div className="relative">

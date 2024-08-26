@@ -79,6 +79,39 @@
   margin-top: 30px;
 }
 
+.nav-profile-dropdown {
+  position: absolute;
+  display: none;
+  right: 0;
+  z-index: 1;
+}
+
+.nav-profile:hover .nav-profile-dropdown {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  align-items: center;
+  background-color: #fff2ef !important;
+  padding: 12px 25px !important;
+  border-radius: 4px !important;
+  border: 1px solid tomato !important;
+  outline: 2px solid white !important;
+  list-style: none !important;
+}
+
+.nav-profile-dropdown li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  justify-content: center;
+  padding: 2px;
+}
+
+.nav-profile-dropdown img {
+  width: 20px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
