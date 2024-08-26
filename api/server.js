@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import Cookies from "cookie-parser";
 dotenv.config();
 const app = express();
 
@@ -9,6 +10,7 @@ import authRoute from "./routes/auth.route.js";
 
 //middlewares
 app.use(express.json());
+app.use(Cookies());
 app.use(cors());
 
 import connectDB from "./config/db.js";
