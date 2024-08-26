@@ -24,8 +24,14 @@ const addFood = async (req, res) => {
 };
 
 const getFoodList = async (req, res) => {
+  let foodList;
   try {
-    const foodList = await foodModel.find();
+    if (req.query.category === "All") {
+      foodList = await foodModel.find();
+    } else {
+      foodList = await foodModel.find({ category: req.query.category });
+    }
+    console.log(foodList);
     res.json({
       success: true,
       message: "User Fetched",
